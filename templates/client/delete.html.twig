@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}supprimer un client{% endblock %}
+
+{% block body %}
+    <h1>{{ h1|raw }}</h1>
+
+    {{ form(formulaire) }}
+
+    <a href="{{ path("categories") }}"
+       class="btn btn-success">
+        OK</a>
+{% endblock %}

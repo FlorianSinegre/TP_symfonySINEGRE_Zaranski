@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des categories{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>email</th>
+            <th>Iban</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.nom }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.iban }}</td>
+                <td>{{ client.prenom }}</td>
+                <td>
+                    <a href="{{ path("modifier_categories",{"id":categorie.id}) }}"
+                       class="btn btn-primary">
+                        Modifier</a>
+                    <a href="{{ path("delete_categories",{"id":categorie.id}) }}"
+                       class="btn btn-danger">
+                        Suprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+
+    </table>
+    <a href="{{ path("ajouter_categories") }}"
+       class="btn btn-success">
+        ajouter</a>
+
+
+{% endblock %}
